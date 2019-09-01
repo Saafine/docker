@@ -12,8 +12,6 @@ services:
       DATABASE_HOST: db
   frontend:
     image: saafine/scraper-frontend
-    ports:
-      - 80:80
   db:
     image: mysql
     command: --default-authentication-plugin=mysql_native_password
