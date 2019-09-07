@@ -1,29 +1,15 @@
-# Use root/example as user/password credentials
-version: '3.1'
+version: '3'
 
 services:
-  api:
-    image: saafine/scraper
+  nginx:
+    image: nginx:1.15-alpine
     ports:
-      - 3000:3000
-    depends_on:
-      - db
-    environment:
-      DATABASE_HOST: db
-  frontend:
-    image: saafine/scraper-frontend
-    ports:
-    - 80:80
-  db:
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    restart: always
-    ports:
-    - 3306:3306
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-  db-panel:
-    image: adminer
-    restart: always
-    ports:
-      - 8080:8080
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./data/nginx:/etc/nginx/conf.d
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot

@@ -1,0 +1,29 @@
+# Use root/example as user/password credentials
+version: '3.1'
+
+services:
+  api:
+    image: saafine/scraper
+    ports:
+      - 3000:3000
+    depends_on:
+      - db
+    environment:
+      DATABASE_HOST: db
+  frontend:
+    image: saafine/scraper-frontend
+    ports:
+    - 80:80
+  db:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    ports:
+    - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+  db-panel:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
