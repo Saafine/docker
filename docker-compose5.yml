@@ -2,7 +2,7 @@ version: '3'
 
 services:
   frontend:
-    build: https://github.com/Saafine/scraper-frontend.git
+    image: saafine/scraper-frontend
     restart: unless-stopped
     volumes:
       - ./data/nginx:/etc/nginx/conf.d
