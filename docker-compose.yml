@@ -29,8 +29,8 @@ services:
     depends_on:
       - db
     environment:
-      KEY_PATH: "/etc/letsencrypt/live/scrapulec.eu/fullchain.pem"
-      CERT_PATH: "/etc/letsencrypt/live/scrapulec.eu/privkey.pem"
+      KEY_PATH: "/etc/letsencrypt/live/scrapulec.eu/privkey.pem"
+      CERT_PATH: "/etc/letsencrypt/live/scrapulec.eu/cert.pem"
       DATABASE_HOST: db
   db:
     image: mysql
