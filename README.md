@@ -1,6 +1,6 @@
 Make sure docker / docker compose is installed
 Make sure Security Groups on AWS are set up correctly
-Run chmod +x init-letsencrypt.sh and sudo ./init.sh
+Run chmod +x init.sh and sudo ./init.sh
 
 # Troubleshooting:
 Couldn't connect to Docker daemon at http+docker://localhost - is it running?
