@@ -10,7 +10,7 @@ services:
     environment:
       MYSQL_ROOT_PASSWORD: password
     volumes:
-      - ./data/mysql:/var/lib/mysql
+      - C:\Projects\docker\backup:/var/lib/mysql
   db-panel:
     image: adminer
     restart: always
